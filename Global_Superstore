@@ -1,3 +1,8 @@
+// Dataset: 
+// Source:
+// Queried using: data.world
+
+// Basic Aggregation
 // How much total sales were generated each year?
 
 SELECT year, SUM(sales) AS TotalSales
@@ -18,3 +23,29 @@ SELECT product_name, sum(sales) AS TotalSales
     GROUP BY product_name
     ORDER BY sum(sales) DESC
     LIMIT 10
+
+// Customer Analysis
+// Which customers have spent the most on orders?
+// How many orders has each customer placed?
+// How do sales differ across customer segments?
+
+// Product Analysis:
+// How much sales do different product categories generate?
+// Which products have the highest profit?
+
+// Order & Shipment Analysis:
+// What is the average order value by region?
+// How much is being spent on shipping compared to sales in each region?
+
+// Profit Analysis:
+// How much profit was generated each year?
+// What are the profit margins for different product categories?
+
+// Region & Territory Analysis:
+// What are the sales totals by state or country?
+// Which cities or postal codes have the highest sales?
+
+// Advanced Analytics
+// How many customers made repeat purchases?
+// How do discounts affect the profit for each product?
+// Estimate the sales for the coming year using a simple moving average method.
