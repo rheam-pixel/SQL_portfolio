@@ -1,0 +1,20 @@
+// How much total sales were generated each year?
+
+SELECT year, SUM(sales) AS TotalSales
+    FROM global_superstore
+    GROUP BY year
+
+// How much sales were generated in each region?
+
+SELECT region, SUM(sales) AS TotalSales
+    FROM global_superstore
+    GROUP BY region
+    ORDER BY SUM(sales) DESC
+
+// Which products have the highest total sales?
+
+SELECT product_name, sum(sales) AS TotalSales
+    FROM global_superstore
+    GROUP BY product_name
+    ORDER BY sum(sales) DESC
+    LIMIT 10
