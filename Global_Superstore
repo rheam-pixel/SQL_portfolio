@@ -1,30 +1,35 @@
-// Dataset: 
-// Source:
+// Dataset: Global Superstore
+// Source: https://data.world/2918diy/global-superstore
 // Queried using: data.world
 
 // Basic Aggregation
+
 // How much total sales were generated each year?
 
-SELECT year, SUM(sales) AS TotalSales
+SELECT year,
+    SUM(sales) AS TotalSales
     FROM global_superstore
     GROUP BY year
 
 // How much sales were generated in each region?
 
-SELECT region, SUM(sales) AS TotalSales
+SELECT region,
+    SUM(sales) AS TotalSales
     FROM global_superstore
     GROUP BY region
     ORDER BY SUM(sales) DESC
 
 // Which products have the highest total sales?
 
-SELECT product_name, sum(sales) AS TotalSales
+SELECT product_name,
+    SUM(sales) AS TotalSales
     FROM global_superstore
     GROUP BY product_name
     ORDER BY sum(sales) DESC
     LIMIT 10
 
 // Time Based Analysis
+
 // What were the monthly income trends in 2013 and 2014?
 
 SELECT MONTH(order_date) AS Month,
@@ -36,50 +41,23 @@ SELECT MONTH(order_date) AS Month,
     GROUP BY YEAR(order_date), month(order_date)
     ORDER BY YEAR(order_date), month(order_date)
 
-//What was the percentage change in sales from 2013 to 2014
-
-// Customer Analysis
-// Which customers have spent the most on orders?
-
 // How many orders has each customer placed?
 
 SELECT 
     customer_name,
-    count(*) AS TotalOrders
+    COUNT(*) AS TotalOrders
     FROM global_superstore
 GROUP BY customer_name
 ORDER BY count(*) DESC
 
 // How do sales differ across customer segments?
+
 SELECT
     segment,
-    sum(sales) AS TotalSales,
-    sum(profit) AS TotalProfit,
+    SUM(sales) AS TotalSales,
+    SUM(profit) AS TotalProfit,
     FROM global_superstore
     GROUP BY segment
-
-// Product Analysis:
-// How much sales do different product categories generate?
-// Which products have the highest profit?
-
-// Order & Shipment Analysis:
-// What is the average order value by region?
-// How much is being spent on shipping compared to sales in each region?
-
-// Profit Analysis:
-// How much profit was generated each year?
-// What are the profit margins for different product categories?
-
-// Region & Territory Analysis:
-// What are the sales totals by state or country?
-// Which cities or postal codes have the highest sales?
-
-// Advanced Analytics
-// How many customers made repeat purchases?
-
-SELECT count(*)
-FROM global_superstore
-WHERE customer_id NOT IN (SELECT DISTINCT customer_id from global_superstore)
 
 // How do discounts affect the profit for each product?
 
@@ -91,4 +69,3 @@ SELECT
 FROM global_superstore
 GROUP BY discount_applied
 
-// Estimate the sales for the coming year using a simple moving average method.
