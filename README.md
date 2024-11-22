@@ -1,0 +1,1 @@
+Welcome to my SQL Learning Repository! This repository is a collection of SQL queries and exercises that I have written to practice and demonstrate various SQL concepts, including basic queries, joins, subqueries, aggregations, and more.
